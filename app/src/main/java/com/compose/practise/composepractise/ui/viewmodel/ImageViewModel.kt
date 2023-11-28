@@ -21,6 +21,8 @@ class ImageViewModel(
             is ImageViewIntent.ChangeQuery -> changeQuery(intent.query)
 
             is ImageViewIntent.SearchImages -> searchImage(intent.query)
+
+            else ->{}
         }
     }
 
