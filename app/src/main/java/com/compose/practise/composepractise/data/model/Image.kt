@@ -1,4 +1,4 @@
-package com.compose.practise.composepractise.data
+package com.compose.practise.composepractise.data.model
 
 data class Image(
     val total: Int? = null,

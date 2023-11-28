@@ -1,5 +1,6 @@
 package com.compose.practise.composepractise.data
 
+import com.compose.practise.composepractise.data.model.Image
 import retrofit2.http.GET
 import retrofit2.http.Query
 
