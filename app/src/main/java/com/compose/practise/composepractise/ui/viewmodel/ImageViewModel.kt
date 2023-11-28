@@ -22,7 +22,7 @@ class ImageViewModel(
 
             is ImageViewIntent.SearchImages -> searchImage(intent.query)
 
-            else ->{}
+            is ImageViewIntent.ChangeLayoutManager -> changeLayoutManager(intent.layoutManager)
         }
     }
 
@@ -38,11 +38,9 @@ class ImageViewModel(
                     when(it) {
                         is BaseCallBackStatus.SUCCESS -> {
                             uiState = uiState.copy(isLoading = false)
-                            Log.e("Jason","$it it")
                         }
                         is BaseCallBackStatus.ERROR -> {
                             uiState = uiState.copy(isLoading = false)
-                            Log.e("Jason","$it it")
                         }
 
                     }
@@ -52,10 +50,16 @@ class ImageViewModel(
             }
         }
     }
+
+    private fun changeLayoutManager(layoutManager: LayoutManagerType) {
+        uiState = uiState.copy(layoutManagerStatus = layoutManager)
+    }
 }
 
 data class ImageUIState(
     val isLoading: Boolean = false,
 
-    val query: String = ""
+    val query: String = "",
+
+    val layoutManagerStatus: LayoutManagerType = LayoutManagerType.GRID
 )
