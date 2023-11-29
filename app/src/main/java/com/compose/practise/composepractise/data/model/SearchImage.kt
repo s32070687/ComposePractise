@@ -1,9 +1,9 @@
 package com.compose.practise.composepractise.data.model
 
-data class Image(
-    val total: Int? = null,
-    val totalHits: Int? = null,
-    val hits: ArrayList<ImageHits>
+data class SearchImage(
+    val total: Int? = 0,
+    val totalHits: Int? = 0,
+    val hits: List<ImageHits> = emptyList()
 )
 
 data class ImageHits(

@@ -31,9 +31,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val uiState = viewModel.uiState
+            val data = viewModel.data
+
             ComposePractiseTheme {
                 ImageScreen(
                     uiState = uiState,
+                    data = data,
                     onEvent = viewModel::processIntent)
             }
         }

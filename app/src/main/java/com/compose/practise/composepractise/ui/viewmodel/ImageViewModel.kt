@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.compose.practise.composepractise.data.model.BaseCallBackStatus
+import com.compose.practise.composepractise.data.model.SearchImage
 import com.compose.practise.composepractise.data.repository.ImageRepository
 import kotlinx.coroutines.launch
 
@@ -16,6 +17,9 @@ class ImageViewModel(
     var uiState by mutableStateOf(ImageUIState())
         private set
 
+    var data by mutableStateOf(SearchImage())
+        private set
+
     fun processIntent(intent: ImageViewIntent) {
         when(intent) {
             is ImageViewIntent.ChangeQuery -> changeQuery(intent.query)
@@ -23,6 +27,8 @@ class ImageViewModel(
             is ImageViewIntent.SearchImages -> searchImage(intent.query)
 
             is ImageViewIntent.ChangeLayoutManager -> changeLayoutManager(intent.layoutManager)
+
+            else -> {}
         }
     }
 
@@ -38,11 +44,13 @@ class ImageViewModel(
                     when(it) {
                         is BaseCallBackStatus.SUCCESS -> {
                             uiState = uiState.copy(isLoading = false)
+                            data = it.data
                         }
                         is BaseCallBackStatus.ERROR -> {
                             uiState = uiState.copy(isLoading = false)
                         }
 
+                        else -> {}
                     }
                 }
             } catch (e: Exception) {

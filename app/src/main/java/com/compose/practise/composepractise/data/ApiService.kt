@@ -1,6 +1,6 @@
 package com.compose.practise.composepractise.data
 
-import com.compose.practise.composepractise.data.model.Image
+import com.compose.practise.composepractise.data.model.SearchImage
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -31,5 +31,5 @@ interface ApiService {
         @Query(value = "per_page") per_page: Int = 20,
         @Query(value = "callback") callback: String = "",
         @Query(value = "pretty") pretty: Boolean = false
-    ): Image?
+    ): SearchImage?
 }
