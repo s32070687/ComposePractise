@@ -10,7 +10,7 @@ import androidx.compose.ui.window.DialogProperties
 import com.compose.practise.composepractise.ui.them.Purple80
 
 @Composable
-fun ErrorComponent(
+fun DialogComponent(
     message: String,
     onDismiss: () -> Unit,
     onConfirm: () -> Unit
@@ -38,7 +38,7 @@ fun ErrorComponent(
 @Preview(showBackground = true)
 @Composable
 fun DialogPreview() {
-    ErrorComponent(
+    DialogComponent(
         message = "大長粗硬久鈴薯",
         onDismiss = {},
         onConfirm = {}

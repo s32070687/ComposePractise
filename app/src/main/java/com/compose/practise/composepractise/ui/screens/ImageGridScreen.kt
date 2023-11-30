@@ -28,6 +28,9 @@ import com.compose.practise.composepractise.ui.components.ItemColumComponent
 fun ImageGridScreen(images: List<ImageHits>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 4.dp),
         content = {
             items(images.size) {
                 ImageGridItem(image = images[it])
@@ -42,7 +45,8 @@ fun ImageGridItem(image: ImageHits) {
         colors = CardDefaults.elevatedCardColors(containerColor = Color.White),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 10.dp)
+            .padding(horizontal = 4.dp)
+            .padding(bottom = 8.dp)
             .height(350.dp)
     ) {
 

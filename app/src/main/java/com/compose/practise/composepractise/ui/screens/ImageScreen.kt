@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.compose.practise.composepractise.R
 import com.compose.practise.composepractise.data.model.SearchImage
 import com.compose.practise.composepractise.data.model.ImageHits
+import com.compose.practise.composepractise.ui.components.DialogComponent
 import com.compose.practise.composepractise.ui.components.LoadingComponent
 import com.compose.practise.composepractise.ui.them.Purple40
 import com.compose.practise.composepractise.ui.viewmodel.ImageUIState
@@ -44,18 +45,18 @@ fun ImageScreen(
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
+
         Column(
             modifier = Modifier
                 .padding(innerPadding)
-                .padding(8.dp)
                 .fillMaxWidth()
         ) {
 
-            if (uiState.isLoading) {
-                LoadingComponent()
-            }
+            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
+                modifier = Modifier
+                    .padding(horizontal = 8.dp),
                 text = "Pixabay Image Finder",
                 fontFamily = FontFamily.Cursive,
                 fontSize = 32.sp
@@ -67,7 +68,8 @@ fun ImageScreen(
 
             Row(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
@@ -136,6 +138,24 @@ fun ImageScreen(
             }
 
         }
+    }
+
+    // Loading
+    if (uiState.isLoading) {
+        LoadingComponent()
+    }
+
+    // Dialog
+    if (uiState.isShowDialog) {
+        DialogComponent(
+            message = uiState.infoMessage,
+            onDismiss = {
+                onEvent(ImageViewIntent.DismissDialog)
+            },
+            onConfirm = {
+                onEvent(ImageViewIntent.DismissDialog)
+            }
+        )
     }
 }
 

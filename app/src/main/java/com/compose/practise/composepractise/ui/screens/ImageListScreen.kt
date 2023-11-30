@@ -33,6 +33,7 @@ fun ImageListScreen(images: List<ImageHits>) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
+            .padding(horizontal = 8.dp)
             .background(Color.White)
     ) {
         items(images) {

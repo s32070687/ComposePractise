@@ -28,6 +28,7 @@ class ImageViewModel(
 
             is ImageViewIntent.ChangeLayoutManager -> changeLayoutManager(intent.layoutManager)
 
+            is ImageViewIntent.DismissDialog -> uiState = uiState.copy(isShowDialog = false)
             else -> {}
         }
     }
@@ -47,10 +48,11 @@ class ImageViewModel(
                             data = it.data
                         }
                         is BaseCallBackStatus.ERROR -> {
-                            uiState = uiState.copy(isLoading = false)
+                            uiState = uiState.copy(
+                                isLoading = false,
+                                isShowDialog = true,
+                                infoMessage = it.message ?: "")
                         }
-
-                        else -> {}
                     }
                 }
             } catch (e: Exception) {
@@ -69,5 +71,9 @@ data class ImageUIState(
 
     val query: String = "",
 
-    val layoutManagerStatus: LayoutManagerType = LayoutManagerType.GRID
+    val layoutManagerStatus: LayoutManagerType = LayoutManagerType.GRID,
+
+    val isShowDialog: Boolean = false,
+
+    val infoMessage: String = ""
 )

@@ -7,6 +7,8 @@ sealed class ImageViewIntent {
     data class ChangeLayoutManager(val layoutManager: LayoutManagerType) : ImageViewIntent()
 
     data class SearchImages(val query: String) : ImageViewIntent()
+
+    object DismissDialog : ImageViewIntent()
 }
 
 enum class LayoutManagerType {
