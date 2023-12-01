@@ -1,6 +1,6 @@
 package com.compose.practise.composepractise.di
 
-import com.compose.practise.composepractise.data.ApiService
+import com.compose.practise.composepractise.data.remote.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create

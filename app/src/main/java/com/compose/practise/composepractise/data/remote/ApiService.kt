@@ -1,4 +1,4 @@
-package com.compose.practise.composepractise.data
+package com.compose.practise.composepractise.data.remote
 
 import com.compose.practise.composepractise.data.model.SearchImage
 import retrofit2.http.GET

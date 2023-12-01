@@ -1,4 +1,4 @@
-package com.compose.practise.composepractise.data.repository
+package com.compose.practise.composepractise.data.remote
 
 import com.compose.practise.composepractise.data.model.BaseCallBackStatus
 import com.compose.practise.composepractise.data.model.SearchImage

@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.compose.practise.composepractise.data.model.BaseCallBackStatus
 import com.compose.practise.composepractise.data.model.SearchImage
-import com.compose.practise.composepractise.data.repository.ImageRepository
+import com.compose.practise.composepractise.data.remote.ImageRepository
 import kotlinx.coroutines.launch
 
 class ImageViewModel(
